@@ -8,52 +8,6 @@ import GradeOutlinedIcon from "@material-ui/icons/GradeOutlined";
 import MovieFilterOutlinedIcon from "@material-ui/icons/MovieFilterOutlined";
 import RadioOutlinedIcon from "@material-ui/icons/RadioOutlined";
 
-const Header = () => {
-  const userName = null;
-
-  return (
-    <Nav>
-      <Logo>
-        <Image src={appLogo} height={90} width={100} objectFit="contain" />
-      </Logo>
-      {!userName ? (
-        <Login>Login</Login>
-      ) : (
-        <>
-          <NavMenu>
-            <a href="/">
-              <HomeIcon fontSize="large" />
-              <span>HOME</span>
-            </a>
-            <a>
-              <SearchIcon fontSize="large" />
-              <span>SEARCH</span>
-            </a>
-            <a>
-              <AddIcon fontSize="large" />
-              <span>WATCHLIST</span>
-            </a>
-            <a>
-              <GradeIcon fontSize="large" />
-              <span>ORIGINALS</span>
-            </a>
-            <a>
-              <MovieIcon fontSize="large" />
-              <span>MOVIES</span>
-            </a>
-            <a>
-              <RadioIcon fontSize="large" />
-              <span>SERIES</span>
-            </a>
-          </NavMenu>
-        </>
-      )}
-    </Nav>
-  );
-};
-
-export default Header;
-
 const Nav = styled.nav`
   position: fixed;
   top: 0;
@@ -188,3 +142,50 @@ const MovieIcon = styled(MovieFilterOutlinedIcon)`
 const RadioIcon = styled(RadioOutlinedIcon)`
   color: white;
 `;
+
+const Header = () => {
+  const userName = null;
+
+  return (
+    <Nav>
+      <Logo>
+        <Image src={appLogo} height={90} width={100} objectFit="contain" />
+      </Logo>
+      {!userName ? (
+        <Login>Login</Login>
+      ) : (
+        <>
+          <NavMenu>
+            <a href="/">
+              <HomeIcon fontSize="large" />
+              <span>HOME</span>
+            </a>
+            <a>
+              <SearchIcon fontSize="large" />
+              <span>SEARCH</span>
+            </a>
+            <a>
+              <AddIcon fontSize="large" />
+              <span>WATCHLIST</span>
+            </a>
+            <a>
+              <GradeIcon fontSize="large" />
+              <span>ORIGINALS</span>
+            </a>
+            <a>
+              <MovieIcon fontSize="large" />
+              <span>MOVIES</span>
+            </a>
+            <a>
+              <RadioIcon fontSize="large" />
+              <span>SERIES</span>
+            </a>
+          </NavMenu>
+          <Login>Logout</Login>
+        </>
+      )}
+    </Nav>
+  );
+};
+
+export default Header;
