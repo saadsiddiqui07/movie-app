@@ -3,6 +3,7 @@ import Image from "next/image";
 import LoginBackground from "../../images/login-background.jpg";
 import FirstImage from "../../images/cta-logo-one.svg";
 import SecondImage from "../../images/cta-logo-two.png";
+import { useRouter } from "next/router";
 
 const Container = styled.section`
   width: 100%;
@@ -58,9 +59,15 @@ const Description = styled.p`
   margin: 0 0 24px;
   line-height: 1.5;
   letter-spacing: 1.5px;
+
+  @media (max-width: 800px) {
+    font-size: 9px;
+  }
 `;
 
 const HeroSection = () => {
+  const router = useRouter();
+
   return (
     <Container>
       <BackgroundImage src={LoginBackground} layout="fill" objectFit="cover" />
@@ -72,7 +79,7 @@ const HeroSection = () => {
           width={1000}
           layout="intrinsic"
         />
-        <Button>GET ALL HERE</Button>
+        <Button onClick={() => router.push("/home")}>GET ALL HERE</Button>
         <Description>
           Get Premier Access to Raya and the Last Dragon for an additional fee
           with a Disney+ subscription. As of 03/26/21, the price of Disney+ and
