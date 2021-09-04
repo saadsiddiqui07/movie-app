@@ -7,6 +7,8 @@ import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 import GradeOutlinedIcon from "@material-ui/icons/GradeOutlined";
 import MovieFilterOutlinedIcon from "@material-ui/icons/MovieFilterOutlined";
 import RadioOutlinedIcon from "@material-ui/icons/RadioOutlined";
+import { useSession } from "next-auth/client";
+import { useRouter, Router } from "next/router";
 
 const Nav = styled.nav`
   position: fixed;
@@ -144,12 +146,20 @@ const RadioIcon = styled(RadioOutlinedIcon)`
 `;
 
 const Header = () => {
+  const [session, loading] = useSession();
   const userName = null;
+  const router = useRouter();
 
   return (
     <Nav>
       <Logo>
-        <Image src={appLogo} height={90} width={100} objectFit="contain" />
+        <Image
+          onClick={() => router.push("/")}
+          src={appLogo}
+          height={90}
+          width={100}
+          objectFit="contain"
+        />
       </Logo>
       {!userName ? (
         <Login>Login</Login>
